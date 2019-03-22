@@ -1,6 +1,6 @@
 static volatile char * const VGABUF = (volatile char *) 0xb8000;
 
-#include "c99int.h"
+#include <stdint.h>
 
 void comienzo() {
     volatile unsigned *p = VGABUF;
