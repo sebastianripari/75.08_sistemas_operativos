@@ -1,4 +1,4 @@
-CFLAGS := -g -m32 -O1
+CFLAGS := -g -m32 -O1 -fno-inline
 SRCS := $(wildcard *.c)
 OBJS := $(patsubst %.c, %.o, $(SRCS))
 
