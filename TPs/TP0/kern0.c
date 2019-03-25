@@ -1,6 +1,6 @@
 #define VGABUF ((volatile char *) 0xb8000)
 
-#include <stdint.h>
+#include "c99int.h"
 
 static void
 vga_write(const char *s, int8_t linea, uint8_t color) {
@@ -13,11 +13,11 @@ vga_write(const char *s, int8_t linea, uint8_t color) {
 	else
 		buf += cantidad_caracteres_linea * (cantidad_lineas + linea); 
 
-
-	for(int i = 0; i < sizeof(s); ++i) {
-		*buf++ = (int) s[i];
-		*buf++ = color;	
+	while(*s != 0){
+		*buf++ = *s++;
+		*buf++ = color;
 	}
+	
 }
 
 void comienzo(void) {
