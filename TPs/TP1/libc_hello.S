@@ -1,6 +1,9 @@
 .globl main
 main:
-	push $len
+	push $msg
+	call strlen
+
+	push %eax
 	push $msg
 	push $1
 
@@ -11,6 +14,4 @@ main:
 
 .data
 msg:
-	.asciz "Hello, world!\n"
-
-.set len, . - msg
+	.ascii "Hello, world!\n"
