@@ -13,7 +13,7 @@ vga_write(const char *s, int8_t linea, uint8_t color) {
 	else
 		buf += cantidad_caracteres_linea * (cantidad_lineas + linea); 
 
-	while(*s != 0){
+	while(*s != 0) {
 		*buf++ = *s++;
 		*buf++ = color;
 	}
