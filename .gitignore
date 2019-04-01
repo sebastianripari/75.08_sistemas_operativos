@@ -2,4 +2,5 @@ TPs/TP0/kern0
 TPs/TP1/libc_hello
 TPs/TP0/*.o
 TPs/TP1/*.o
+TPs/TP1/libc_hello.S
 .ipynb_checkpoints
