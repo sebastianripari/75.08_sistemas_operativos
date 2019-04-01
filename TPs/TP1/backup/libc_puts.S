@@ -12,7 +12,7 @@ main:
 	mov $7, %eax 
 	#### Epilogo ####
 	movl %ebp, %esp
-    popl %ebp
+	popl %ebp
 	#################
 	ret
 
