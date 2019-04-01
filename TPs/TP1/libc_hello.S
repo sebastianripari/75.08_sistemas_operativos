@@ -1,19 +1,28 @@
-#include <sys/syscall.h>  // SYS_write, SYS_exit
-
 .globl main
+# Call libc's wrappers to write(2) and _exit(2):
+#
+#     void _exit(int status);
+#     ssize_t write(int fd, const void *buf, size_t count);
+#
 main:
+	#### Prologue ####
+	push %ebp
+	movl %esp, %ebp
+	##################
+	# Call convention: arguments on the stack (reverse order).
+	push $len
 	push $msg
-	call puts
-
 	push $1
-	push $2
-	call sumador
 
-sumador:
-	mov %esp, %ebx
-	add %esp, 4
-	mov %esp, %ecx
-	ret
+	# No declaration needed; asm assumes symbols always exist.
+	call write
+
+	push $7
+	call _exit
+	#### Epilogue ####
+	movl %ebp, %esp
+    popl %ebp
+	##################
 
 .data
 msg:
