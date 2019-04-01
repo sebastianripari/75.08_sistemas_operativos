@@ -1,17 +1,22 @@
+#include <sys/syscall.h>  // SYS_write, SYS_exit
+
 .globl main
 main:
 	push $msg
-	call strlen
+	call puts
 
-	push %eax
-	push $msg
 	push $1
+	push $2
+	call sumador
 
-	call write
-
-	push $7
-	call _exit
+sumador:
+	mov %esp, %ebx
+	add %esp, 4
+	mov %esp, %ecx
+	ret
 
 .data
 msg:
 	.ascii "Hello, world!\n"
+
+.set len, . - msg
