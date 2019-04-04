@@ -13,9 +13,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(1);
@@ -24,9 +24,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(2);
@@ -35,9 +35,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(3);
@@ -46,9 +46,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(4);
@@ -57,9 +57,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(5);
@@ -68,9 +68,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(6);
@@ -79,9 +79,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(7);
@@ -90,9 +90,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(8);
@@ -101,9 +101,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 
 	frame_address = __builtin_frame_address(9);
@@ -112,9 +112,9 @@ void backtrace() {
 	printf(
 		"#%d [%p] ADDR ( %p %p %p )\n\n",
 		numfrm,
-		frame_address,
+		*((int*)(frame_address + 4)),
 		*((int*)(frame_address + 8)),
-		frame_address + 12,
+		*((int*)(frame_address + 12)),
 		*((int*)(frame_address + 16)) );
 }
 
