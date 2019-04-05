@@ -3,119 +3,17 @@
 #include <unistd.h>
 
 void backtrace() {
-	
-	void* frame_address;
-	int numfrm;
-
-	frame_address = __builtin_frame_address(0);
-	numfrm = 0;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(1);
-	numfrm = 1;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(2);
-	numfrm = 2;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(3);
-	numfrm = 3;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(4);
-	numfrm = 4;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(5);
-	numfrm = 5;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(6);
-	numfrm = 6;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(7);
-	numfrm = 7;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(8);
-	numfrm = 8;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
-
-	frame_address = __builtin_frame_address(9);
-	numfrm = 9;
-
-	printf(
-		"#%d [%p] ADDR ( %p %p %p )\n\n",
-		numfrm,
-		*((int*)(frame_address + 4)),
-		*((int*)(frame_address + 8)),
-		*((int*)(frame_address + 12)),
-		*((int*)(frame_address + 16)) );
+	void* frame_address = __builtin_frame_address(0);
+	int numfrm = 0;
+	do {
+		printf(
+			"#%d [%p] ADDR ( %p %p %p )\n",
+			numfrm++,
+			*((int*)(frame_address + 4)),
+			*((int*)(frame_address + 8)),
+			*((int*)(frame_address + 12)),
+			*((int*)(frame_address + 16)) );
+	} while(frame_address = *((int*)frame_address));
 }
 
 void my_write(int fd, const void *msg, size_t count) {
