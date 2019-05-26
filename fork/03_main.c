@@ -4,18 +4,19 @@
 #include <unistd.h>
 
 void foo() {
-	int x = 0;
-	int pid = fork();
-	x = 42;
-	if (pid == 0) {
-		x = 10;
-	} else {
-		waitpid(pid, 0, 0);
-	}
-	printf("x = %d\n", x);
+    int pid = fork();
+   
+    if (pid == 0) {
+        // hijo
+        printf("pid = %d\n", pid);
+    } else {
+        // padre
+        waitpid(pid, 0, 0);
+        printf("pid = %d\n", pid);
+    }
 }
 
 int main() {
-	foo();
-	printf("Finaliza un proceso\n");
+    foo();
+    printf("Finaliza un proceso\n");
 }
